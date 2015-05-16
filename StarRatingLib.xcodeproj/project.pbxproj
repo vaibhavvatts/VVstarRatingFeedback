@@ -14,8 +14,8 @@
 		800D4C0E1AEB57A20033738D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800D4C0D1AEB57A20033738D /* Images.xcassets */; };
 		800D4C111AEB57A20033738D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800D4C0F1AEB57A20033738D /* LaunchScreen.xib */; };
 		800D4C1D1AEB57A30033738D /* StarRatingLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800D4C1C1AEB57A30033738D /* StarRatingLibTests.m */; };
-		800D4C2F1AEB9B1D0033738D /* StarBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800D4C2E1AEB9B1D0033738D /* StarBtnView.m */; };
-		801489A31B07B88C0077095F /* StarRatingFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 801489A21B07B88C0077095F /* StarRatingFeedback.m */; };
+		801489A91B07BC450077095F /* StarBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 801489A61B07BC450077095F /* StarBtnView.m */; };
+		801489AA1B07BC450077095F /* StarRatingFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 801489A81B07BC450077095F /* StarRatingFeedback.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +42,10 @@
 		800D4C161AEB57A30033738D /* StarRatingLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarRatingLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		800D4C1B1AEB57A30033738D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		800D4C1C1AEB57A30033738D /* StarRatingLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarRatingLibTests.m; sourceTree = "<group>"; };
-		800D4C2D1AEB9B1D0033738D /* StarBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarBtnView.h; sourceTree = "<group>"; };
-		800D4C2E1AEB9B1D0033738D /* StarBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarBtnView.m; sourceTree = "<group>"; };
-		801489A11B07B88C0077095F /* StarRatingFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingFeedback.h; sourceTree = "<group>"; };
-		801489A21B07B88C0077095F /* StarRatingFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingFeedback.m; sourceTree = "<group>"; };
+		801489A51B07BC450077095F /* StarBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarBtnView.h; sourceTree = "<group>"; };
+		801489A61B07BC450077095F /* StarBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarBtnView.m; sourceTree = "<group>"; };
+		801489A71B07BC450077095F /* StarRatingFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingFeedback.h; sourceTree = "<group>"; };
+		801489A81B07BC450077095F /* StarRatingFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingFeedback.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		800D4BF41AEB57A20033738D = {
 			isa = PBXGroup;
 			children = (
-				800D4C261AEB57C00033738D /* VVStarRatingClasses */,
+				801489A41B07BC450077095F /* VVStarRatingClasses */,
 				800D4BFF1AEB57A20033738D /* StarRatingLib */,
 				800D4C191AEB57A30033738D /* StarRatingLibTests */,
 				800D4BFE1AEB57A20033738D /* Products */,
@@ -126,15 +126,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		800D4C261AEB57C00033738D /* VVStarRatingClasses */ = {
+		801489A41B07BC450077095F /* VVStarRatingClasses */ = {
 			isa = PBXGroup;
 			children = (
-				800D4C2D1AEB9B1D0033738D /* StarBtnView.h */,
-				800D4C2E1AEB9B1D0033738D /* StarBtnView.m */,
-				801489A11B07B88C0077095F /* StarRatingFeedback.h */,
-				801489A21B07B88C0077095F /* StarRatingFeedback.m */,
+				801489A51B07BC450077095F /* StarBtnView.h */,
+				801489A61B07BC450077095F /* StarBtnView.m */,
+				801489A71B07BC450077095F /* StarRatingFeedback.h */,
+				801489A81B07BC450077095F /* StarRatingFeedback.m */,
 			);
-			name = VVStarRatingClasses;
+			path = VVStarRatingClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,10 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				800D4C091AEB57A20033738D /* ViewController.m in Sources */,
+				801489A91B07BC450077095F /* StarBtnView.m in Sources */,
 				800D4C061AEB57A20033738D /* AppDelegate.m in Sources */,
 				800D4C031AEB57A20033738D /* main.m in Sources */,
-				800D4C2F1AEB9B1D0033738D /* StarBtnView.m in Sources */,
-				801489A31B07B88C0077095F /* StarRatingFeedback.m in Sources */,
+				801489AA1B07BC450077095F /* StarRatingFeedback.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
