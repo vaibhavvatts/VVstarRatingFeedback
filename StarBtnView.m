@@ -50,9 +50,25 @@
     [starPath addLineToPoint: CGPointMake(xDist - 13.12, yDist + 25.49)];
     [starPath addLineToPoint: CGPointMake(xDist - 21.87, yDist + 14.86)];
     [starPath addLineToPoint: CGPointMake(xDist - 8.11, yDist + 11.06)];
-    [starPath closePath];
-    [fillColor setFill];
-    [starPath fill];
+
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.path = starPath.CGPath;
+    shapeLayer.fillColor = [UIColor redColor].CGColor;
+    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    [self.layer addSublayer:shapeLayer];
+
+
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.startPoint = CGPointMake(0.5,1.0);
+    gradientLayer.endPoint = CGPointMake(0.5,0.0);
+    gradientLayer.frame = CGRectMake(0, 0, self.frame.size.width , self.frame.size.height);
+    NSMutableArray *colors = [NSMutableArray array];
+    [colors addObject:(id)[UIColor redColor].CGColor];
+    [colors addObject:(id)[UIColor darkGrayColor].CGColor];
+    gradientLayer.colors = colors;
+    [gradientLayer setMask:shapeLayer];
+    [self.layer addSublayer:gradientLayer];
+
 }
 
 

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "StarsLibViewController.h"
+#import "StarRatingFeedback.h"
 @interface ViewController ()
+{
+     StarRatingFeedback *starLib;
+}
 
 @end
 
@@ -18,11 +21,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    StarsLibViewController *starLib = [[StarsLibViewController alloc]init];
+    starLib = [[StarRatingFeedback alloc]init];
     starLib.totalStars = 3;
+    
     [starLib beginRating];
-    [self.view addSubview:starLib.view];
+    [self.view addSubview:starLib];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>61443A8A-FE3B-49B3-B4F0-35A91B420363</string>
+	<key>IDESourceControlProjectName</key>
+	<string>StarRatingLib</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1B3190846A0DCE1D9FA2BE9F916128F774887068</key>
+		<string>https://github.com/vaibhavvatts/VVstarRatingFeedback.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>StarRatingLib.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1B3190846A0DCE1D9FA2BE9F916128F774887068</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vaibhavvatts/VVstarRatingFeedback.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1B3190846A0DCE1D9FA2BE9F916128F774887068</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1B3190846A0DCE1D9FA2BE9F916128F774887068</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VVstarRatingFeedback</string>
+		</dict>
+	</array>
+</dict>
+</plist>

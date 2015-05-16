@@ -1,19 +1,25 @@
+
 //
-//  StarsLibViewController.m
+//  StarRatingFeedback.m
 //  StarRatingLib
 //
-//  Created by Vaibhav Kumar on 25/04/15.
+//  Created by Vaibhav Kumar on 16/05/15.
 //  Copyright (c) 2015 Home. All rights reserved.
 //
 
-#import "StarsLibViewController.h"
+#import "StarRatingFeedback.h"
 #import "StarBtnView.h"
 
-@interface StarsLibViewController ()
+
+@interface StarRatingFeedback()
+{
+    UIButton *starBtn;
+}
 
 @end
 
-@implementation StarsLibViewController
+@implementation StarRatingFeedback
+
 
 -(instancetype)init
 {
@@ -28,41 +34,34 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-
-
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 -(void)beginRating
 {
     CGFloat xMargin = 80;
     for (int i = 0; i < self.totalStars; i++) {
-        UIButton *starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,20,45,50)];
-        //starBtn.tag = i +1;
-        //starBtn.backgroundColor = [UIColor greenColor];
-        [self addGradientGloss:starBtn];
-        [starBtn addTarget:self action:@selector(btnTapped) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:starBtn];
+        starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,20,45,50)];
+        starBtn.tag = i +101;
+        [starBtn addTarget:self action:@selector(btnTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:starBtn];
     }
+}
+
+-(void)btnTapped:(UIButton *)sender
+{
+    UIButton *btnStart = sender;
+    int startNumber =  (uint)(btnStart.tag - 100);
+
+    [self.delegate starsRating:startNumber];
 }
 
 -(void) addGradientGloss:(UIView *) viewControl {
 
     // Add Border
     CALayer *layer = viewControl.layer;
-//    layer.cornerRadius = 3.0f;
-//    layer.masksToBounds = YES;
-//    layer.borderWidth = .2f;
-//    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
+    //    layer.cornerRadius = 3.0f;
+    //    layer.masksToBounds = YES;
+    //    layer.borderWidth = .2f;
+    //    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
 
     // Add Shine
     CAGradientLayer *shineLayer = [CAGradientLayer layer];
@@ -84,19 +83,16 @@
     [layer addSublayer:shineLayer];
 }
 
--(void)btnTapped
-{
-    //UIButton *btnStart = sender;
 
-}
+
+
+
 /*
- #pragma mark - Navigation
-
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 @end

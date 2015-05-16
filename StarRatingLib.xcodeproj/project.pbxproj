@@ -14,8 +14,8 @@
 		800D4C0E1AEB57A20033738D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 800D4C0D1AEB57A20033738D /* Images.xcassets */; };
 		800D4C111AEB57A20033738D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 800D4C0F1AEB57A20033738D /* LaunchScreen.xib */; };
 		800D4C1D1AEB57A30033738D /* StarRatingLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 800D4C1C1AEB57A30033738D /* StarRatingLibTests.m */; };
-		800D4C2C1AEB6CE30033738D /* StarsLibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800D4C2B1AEB6CE30033738D /* StarsLibViewController.m */; };
 		800D4C2F1AEB9B1D0033738D /* StarBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 800D4C2E1AEB9B1D0033738D /* StarBtnView.m */; };
+		801489A31B07B88C0077095F /* StarRatingFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 801489A21B07B88C0077095F /* StarRatingFeedback.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +42,10 @@
 		800D4C161AEB57A30033738D /* StarRatingLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarRatingLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		800D4C1B1AEB57A30033738D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		800D4C1C1AEB57A30033738D /* StarRatingLibTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarRatingLibTests.m; sourceTree = "<group>"; };
-		800D4C2A1AEB6CE30033738D /* StarsLibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarsLibViewController.h; sourceTree = "<group>"; };
-		800D4C2B1AEB6CE30033738D /* StarsLibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarsLibViewController.m; sourceTree = "<group>"; };
 		800D4C2D1AEB9B1D0033738D /* StarBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarBtnView.h; sourceTree = "<group>"; };
 		800D4C2E1AEB9B1D0033738D /* StarBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarBtnView.m; sourceTree = "<group>"; };
+		801489A11B07B88C0077095F /* StarRatingFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingFeedback.h; sourceTree = "<group>"; };
+		801489A21B07B88C0077095F /* StarRatingFeedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingFeedback.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		800D4BF41AEB57A20033738D = {
 			isa = PBXGroup;
 			children = (
-				800D4C261AEB57C00033738D /* StarLib */,
+				800D4C261AEB57C00033738D /* VVStarRatingClasses */,
 				800D4BFF1AEB57A20033738D /* StarRatingLib */,
 				800D4C191AEB57A30033738D /* StarRatingLibTests */,
 				800D4BFE1AEB57A20033738D /* Products */,
@@ -126,15 +126,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		800D4C261AEB57C00033738D /* StarLib */ = {
+		800D4C261AEB57C00033738D /* VVStarRatingClasses */ = {
 			isa = PBXGroup;
 			children = (
-				800D4C2A1AEB6CE30033738D /* StarsLibViewController.h */,
-				800D4C2B1AEB6CE30033738D /* StarsLibViewController.m */,
 				800D4C2D1AEB9B1D0033738D /* StarBtnView.h */,
 				800D4C2E1AEB9B1D0033738D /* StarBtnView.m */,
+				801489A11B07B88C0077095F /* StarRatingFeedback.h */,
+				801489A21B07B88C0077095F /* StarRatingFeedback.m */,
 			);
-			name = StarLib;
+			name = VVStarRatingClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,9 +239,9 @@
 			files = (
 				800D4C091AEB57A20033738D /* ViewController.m in Sources */,
 				800D4C061AEB57A20033738D /* AppDelegate.m in Sources */,
-				800D4C2C1AEB6CE30033738D /* StarsLibViewController.m in Sources */,
 				800D4C031AEB57A20033738D /* main.m in Sources */,
 				800D4C2F1AEB9B1D0033738D /* StarBtnView.m in Sources */,
+				801489A31B07B88C0077095F /* StarRatingFeedback.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +432,7 @@
 				800D4C221AEB57A30033738D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		800D4C231AEB57A30033738D /* Build configuration list for PBXNativeTarget "StarRatingLibTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +441,7 @@
 				800D4C251AEB57A30033738D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

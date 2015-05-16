@@ -1,8 +1,8 @@
 //
-//  StarsLibViewController.h
+//  StarRatingFeedback.h
 //  StarRatingLib
 //
-//  Created by Vaibhav Kumar on 25/04/15.
+//  Created by Vaibhav Kumar on 16/05/15.
 //  Copyright (c) 2015 Home. All rights reserved.
 //
 
@@ -10,14 +10,17 @@
 
 @protocol StarRatingDelegate <NSObject>
 
-@required
+
 //-(CGFloat)starsRating:(int)totalStars unratedColor:(UIColor *)unratedColor ratedColor:(UIColor *)ratedColor;
 
 -(void)starsRating:(CGFloat)ratingValue;
 
 @end
 
-@interface StarsLibViewController : UIViewController
+
+
+
+@interface StarRatingFeedback : UIView
 
 
 @property (nonatomic, weak) id<StarRatingDelegate> delegate;
@@ -32,6 +35,8 @@
 @property BOOL isHalfRatingEnabled;
 // by default it is false
 @property BOOL isGradientEnabled;
+
+
 
 
 @end
