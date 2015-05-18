@@ -11,7 +11,12 @@
 @interface StarBtnView : UIButton
 
 
+@property UIColor *starColor;
+@property UIColor *gradientColor;
+
 
 -(instancetype)initWithFrame:(CGRect)frame;
+-(void)reDrawStars;
+
 
 @end

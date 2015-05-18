@@ -13,7 +13,7 @@
 
 @interface StarRatingFeedback()
 {
-    UIButton *starBtn;
+    NSMutableArray *arrStarBtn;
 }
 
 @end
@@ -25,66 +25,59 @@
 {
     self = [super init];
     if (self) {
-        self.isGradientEnabled = NO;
-        self.isHalfRatingEnabled = NO;
-        self.totalStars = 1;
-        self.ratedColor = [UIColor redColor];
-        self.unratedColor = [UIColor grayColor];
+    }
+    return self;
+}
+-(id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        _isHalfRatingEnabled = NO;
+        _totalStars = 1;
+        _ratedColor = [UIColor yellowColor];
+        _unratedColor = [UIColor lightGrayColor];
+        _ratedGradient = [UIColor darkGrayColor];
+        _unratedGradient = [UIColor darkGrayColor];
     }
     return self;
 }
 
-
 -(void)beginRating
 {
+    arrStarBtn = [[NSMutableArray alloc]init];
     CGFloat xMargin = 80;
     for (int i = 0; i < self.totalStars; i++) {
-        starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,20,45,50)];
-        starBtn.tag = i +101;
-        [starBtn addTarget:self action:@selector(btnTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:starBtn];
+        _starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,200,45,50)];
+        [_starBtn setGradientColor:_unratedGradient];
+        [_starBtn setStarColor:_unratedColor];
+        _starBtn.tag = i +101;
+        [_starBtn addTarget:self action:@selector(btnTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_starBtn];
+        [arrStarBtn addObject:_starBtn];
     }
 }
 
--(void)btnTapped:(UIButton *)sender
+-(void)btnTapped:(StarBtnView *)sender
 {
-    UIButton *btnStart = sender;
+    StarBtnView *btnStart = sender;
     int startNumber =  (uint)(btnStart.tag - 100);
+    
+    for (int i =startNumber -1; i<_totalStars; i++) {
+        btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:i];
+        [btnStart setGradientColor:_unratedGradient];
+        [btnStart setStarColor:_unratedColor];
+        [btnStart reDrawStars];
+    }
+    while (startNumber--) {
+        btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:startNumber];
+        [btnStart setGradientColor:_ratedGradient];
+        [btnStart setStarColor:_ratedColor];
+        [btnStart reDrawStars];
+    }
 
     [self.delegate starsRating:startNumber];
 }
-
--(void) addGradientGloss:(UIView *) viewControl {
-
-    // Add Border
-    CALayer *layer = viewControl.layer;
-    //    layer.cornerRadius = 3.0f;
-    //    layer.masksToBounds = YES;
-    //    layer.borderWidth = .2f;
-    //    layer.borderColor = [UIColor colorWithWhite:0.5f alpha:0.2f].CGColor;
-
-    // Add Shine
-    CAGradientLayer *shineLayer = [CAGradientLayer layer];
-    shineLayer.frame = layer.bounds;
-    shineLayer.colors = [NSArray arrayWithObjects:
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.4f].CGColor,
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:0.75f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:0.4f alpha:0.2f].CGColor,
-                         (id)[UIColor colorWithWhite:1.0f alpha:0.4f].CGColor,
-                         nil];
-    shineLayer.locations = [NSArray arrayWithObjects:
-                            [NSNumber numberWithFloat:0.0f],
-                            [NSNumber numberWithFloat:0.5f],
-                            [NSNumber numberWithFloat:0.5f],
-                            [NSNumber numberWithFloat:0.8f],
-                            [NSNumber numberWithFloat:1.0f],
-                            nil];
-    [layer addSublayer:shineLayer];
-}
-
-
-
 
 
 /*

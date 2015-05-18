@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "StarRatingFeedback.h"
+#import "StarBtnView.h"
+
 @interface ViewController ()
 {
      StarRatingFeedback *starLib;
@@ -21,12 +23,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    starLib = [[StarRatingFeedback alloc]init];
+    starLib = [[StarRatingFeedback alloc]initWithFrame:CGRectMake(0, 50, 300, 300)];
     starLib.totalStars = 3;
     
     [starLib beginRating];
     [self.view addSubview:starLib];
+    
+   
+    
+    
 }
+
+
 
 
 

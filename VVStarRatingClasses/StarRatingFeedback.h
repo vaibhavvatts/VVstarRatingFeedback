@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class StarBtnView;
 @protocol StarRatingDelegate <NSObject>
 
 
@@ -22,19 +22,20 @@
 
 @interface StarRatingFeedback : UIView
 
-
 @property (nonatomic, weak) id<StarRatingDelegate> delegate;
 
 -(void)beginRating;
-
+@property (nonatomic, strong) StarBtnView *starBtn;
 @property UIColor *backgroundColor;
 @property UIColor *unratedColor;
 @property UIColor *ratedColor;
+@property UIColor *unratedGradient;
+@property UIColor *ratedGradient;
+
 @property int totalStars;
 // by default it is false
 @property BOOL isHalfRatingEnabled;
-// by default it is false
-@property BOOL isGradientEnabled;
+
 
 
 

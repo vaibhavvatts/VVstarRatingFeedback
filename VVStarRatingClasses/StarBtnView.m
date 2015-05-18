@@ -26,8 +26,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _gradientColor = [UIColor clearColor];
+        _starColor = [UIColor grayColor];
     }
     return self;
+}
+
+
+-(void)reDrawStars
+{
+    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -53,21 +61,22 @@
 
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = starPath.CGPath;
-    shapeLayer.fillColor = [UIColor redColor].CGColor;
-    shapeLayer.strokeColor = [UIColor redColor].CGColor;
+    shapeLayer.fillColor = _starColor.CGColor;
+    shapeLayer.strokeColor = _starColor.CGColor;
     [self.layer addSublayer:shapeLayer];
 
-
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.startPoint = CGPointMake(0.5,1.0);
-    gradientLayer.endPoint = CGPointMake(0.5,0.0);
-    gradientLayer.frame = CGRectMake(0, 0, self.frame.size.width , self.frame.size.height);
-    NSMutableArray *colors = [NSMutableArray array];
-    [colors addObject:(id)[UIColor redColor].CGColor];
-    [colors addObject:(id)[UIColor darkGrayColor].CGColor];
-    gradientLayer.colors = colors;
-    [gradientLayer setMask:shapeLayer];
-    [self.layer addSublayer:gradientLayer];
+    if (!(_gradientColor == [UIColor clearColor])) {
+        CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+        gradientLayer.startPoint = CGPointMake(0.5,1.0);
+        gradientLayer.endPoint = CGPointMake(0.5,0.0);
+        gradientLayer.frame = CGRectMake(0, 0, self.frame.size.width , self.frame.size.height);
+        NSMutableArray *colors = [NSMutableArray array];
+        [colors addObject:(id)_starColor.CGColor];
+        [colors addObject:(id)_gradientColor.CGColor];
+        gradientLayer.colors = colors;
+        [gradientLayer setMask:shapeLayer];
+        [self.layer addSublayer:gradientLayer];
+    }
 
 }
 
