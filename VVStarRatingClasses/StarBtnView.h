@@ -13,7 +13,7 @@
 
 @property UIColor *starColor;
 @property UIColor *gradientColor;
-
+@property BOOL isHalf;
 
 -(instancetype)initWithFrame:(CGRect)frame;
 -(void)reDrawStars;

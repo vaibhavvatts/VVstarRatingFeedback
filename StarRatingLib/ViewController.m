@@ -10,7 +10,7 @@
 #import "StarRatingFeedback.h"
 #import "StarBtnView.h"
 
-@interface ViewController ()
+@interface ViewController ()<VVstarRatingDelegate>
 {
      StarRatingFeedback *starLib;
 }
@@ -23,18 +23,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    starLib = [[StarRatingFeedback alloc]initWithFrame:CGRectMake(0, 50, 300, 300)];
-    starLib.totalStars = 3;
-    
+    starLib = [[StarRatingFeedback alloc]initWithFrame:CGRectMake(0, 90,375, 50)];
+    starLib.totalStars = 10;
+    starLib.delegate = self;
     [starLib beginRating];
     [self.view addSubview:starLib];
     
-   
-    
-    
 }
 
-
+-(void)starsRating:(CGFloat)ratingValue
+{
+    NSLog(@"%f",ratingValue);
+}
 
 
 

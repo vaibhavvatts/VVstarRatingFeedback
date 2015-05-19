@@ -14,17 +14,20 @@
 @interface StarRatingFeedback()
 {
     NSMutableArray *arrStarBtn;
+    
 }
 
 @end
 
 @implementation StarRatingFeedback
 
+static int currentStar = -1;
 
 -(instancetype)init
 {
     self = [super init];
     if (self) {
+
     }
     return self;
 }
@@ -33,8 +36,8 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        _isHalfRatingEnabled = NO;
-        _totalStars = 1;
+        _isHalfRatingEnabled = YES;
+        _totalStars = 5;
         _ratedColor = [UIColor yellowColor];
         _unratedColor = [UIColor lightGrayColor];
         _ratedGradient = [UIColor darkGrayColor];
@@ -45,10 +48,11 @@
 
 -(void)beginRating
 {
+
     arrStarBtn = [[NSMutableArray alloc]init];
-    CGFloat xMargin = 80;
+    CGFloat xMargin = 50;
     for (int i = 0; i < self.totalStars; i++) {
-        _starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,200,45,50)];
+        _starBtn = [[StarBtnView alloc]initWithFrame:CGRectMake(i*xMargin,0,50,50)];
         [_starBtn setGradientColor:_unratedGradient];
         [_starBtn setStarColor:_unratedColor];
         _starBtn.tag = i +101;
@@ -61,22 +65,34 @@
 -(void)btnTapped:(StarBtnView *)sender
 {
     StarBtnView *btnStart = sender;
-    int startNumber =  (uint)(btnStart.tag - 100);
+    int startNumber =  (uint)(btnStart.tag - 101);
     
-    for (int i =startNumber -1; i<_totalStars; i++) {
-        btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:i];
+    if (startNumber == currentStar && _isHalfRatingEnabled) {
+        btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:currentStar];
         [btnStart setGradientColor:_unratedGradient];
-        [btnStart setStarColor:_unratedColor];
+        [btnStart setStarColor:_unratedGradient];
+        [btnStart setIsHalf:YES];
         [btnStart reDrawStars];
+        currentStar = -1;
+        [self.delegate starsRating:(1+(float)startNumber - .5)];
+    }else{
+        for (int i =startNumber+1; i<_totalStars ; i++) {
+            btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:i];
+            [btnStart setGradientColor:_unratedGradient];
+            [btnStart setStarColor:_unratedColor];
+            [btnStart setIsHalf:NO];
+            [btnStart reDrawStars];
+        }
+        for (int i =startNumber; i>=0; i--) {
+            btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:i];
+            [btnStart setGradientColor:_ratedGradient];
+            [btnStart setStarColor:_ratedColor];
+            [btnStart setIsHalf:NO];
+            [btnStart reDrawStars];
+        }
+        currentStar = startNumber;
+        [self.delegate starsRating:(1+startNumber)];
     }
-    while (startNumber--) {
-        btnStart = (StarBtnView *)[arrStarBtn objectAtIndex:startNumber];
-        [btnStart setGradientColor:_ratedGradient];
-        [btnStart setStarColor:_ratedColor];
-        [btnStart reDrawStars];
-    }
-
-    [self.delegate starsRating:startNumber];
 }
 
 

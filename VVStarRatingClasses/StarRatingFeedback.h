@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @class StarBtnView;
-@protocol StarRatingDelegate <NSObject>
+@protocol VVstarRatingDelegate <NSObject>
 
-
-//-(CGFloat)starsRating:(int)totalStars unratedColor:(UIColor *)unratedColor ratedColor:(UIColor *)ratedColor;
 
 -(void)starsRating:(CGFloat)ratingValue;
 
@@ -22,7 +20,7 @@
 
 @interface StarRatingFeedback : UIView
 
-@property (nonatomic, weak) id<StarRatingDelegate> delegate;
+@property (nonatomic, weak) id<VVstarRatingDelegate> delegate;
 
 -(void)beginRating;
 @property (nonatomic, strong) StarBtnView *starBtn;
