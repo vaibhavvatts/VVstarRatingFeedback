@@ -1,4 +1,4 @@
-VVStarRatingFeedback
+#VVStarRatingFeedback
 
 <b>What it is :</b>
 
