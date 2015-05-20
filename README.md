@@ -12,6 +12,9 @@ Give feedback ratings using stars. With severe customization options. Including 
 4. Adjust spaceing and Alignment using Enum tag
 5. Half star rating enabled and can be toggled.
 
+<img src="https://vattsblog.files.wordpress.com/2015/05/screen-shot-2015-05-20-at-4-53-37-pm.png" alt="ScreenShot"><img src="https://vattsblog.files.wordpress.com/2015/05/screen-shot-2015-05-20-at-4-53-45-pm.png" alt="ScreenShot"><img src="https://vattsblog.files.wordpress.com/2015/05/screen-shot-2015-05-20-at-4-53-51-pm.png" alt="ScreenShot">
+
+
 
 <b>how to use : </b>
 
