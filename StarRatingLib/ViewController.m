@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "StarRatingFeedback.h"
-#import "StarBtnView.h"
+#import "VVstarRating.h"
+#import "StarDrawing.h"
 
 @interface ViewController ()<VVstarRatingDelegate>
 {
-     StarRatingFeedback *starLib;
+     VVstarRating *starLib;   
+    
+    __weak IBOutlet UILabel *lblRatings;
 }
 
 @end
@@ -23,8 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    starLib = [[StarRatingFeedback alloc]initWithFrame:CGRectMake(0, 90,375, 50)];
-    starLib.totalStars = 10;
+    starLib = [[VVstarRating alloc]initWithFrame:CGRectMake(0, 90,self.view.frame.size.width, 50)];
+    starLib.totalStars = 5;
     starLib.delegate = self;
     [starLib beginRating];
     [self.view addSubview:starLib];
@@ -33,7 +35,7 @@
 
 -(void)starsRating:(CGFloat)ratingValue
 {
-    NSLog(@"%f",ratingValue);
+    lblRatings.text = [NSString stringWithFormat:@"Ratings given :  %.01f",ratingValue];
 }
 
 

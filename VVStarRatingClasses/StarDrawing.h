@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StarBtnView : UIButton
+@interface StarDrawing : UIButton
 
 
 @property UIColor *starColor;

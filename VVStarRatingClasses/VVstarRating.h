@@ -7,35 +7,39 @@
 //
 
 #import <UIKit/UIKit.h>
-@class StarBtnView;
+@class StarDrawing;
+
+typedef NS_ENUM(NSUInteger, VVStarSpacing){
+    VVStarSpacingAdjacent,
+    VVStarSpacingOccupied
+};
+
+typedef NS_ENUM(NSUInteger, VVStarAlign){
+    VVStarAlignHorizontal,
+    VVStarAlignVertical
+};
+
 @protocol VVstarRatingDelegate <NSObject>
-
-
 -(void)starsRating:(CGFloat)ratingValue;
-
 @end
 
 
-
-
-@interface StarRatingFeedback : UIView
+@interface VVstarRating : UIView
 
 @property (nonatomic, weak) id<VVstarRatingDelegate> delegate;
 
 -(void)beginRating;
-@property (nonatomic, strong) StarBtnView *starBtn;
+
+@property (nonatomic, strong) StarDrawing *starBtn;
+
 @property UIColor *backgroundColor;
 @property UIColor *unratedColor;
 @property UIColor *ratedColor;
 @property UIColor *unratedGradient;
 @property UIColor *ratedGradient;
-
+@property VVStarSpacing starSpacing;
+@property VVStarAlign starAlign;
 @property int totalStars;
-// by default it is false
 @property BOOL isHalfRatingEnabled;
-
-
-
-
 
 @end

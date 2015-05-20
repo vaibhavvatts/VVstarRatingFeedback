@@ -19,10 +19,10 @@
 //#define oneThirdHeight self.frame.size.height/3;
 //#define twoThirdHeight (2*self.frame.size.height)/3;
 
-#import "StarBtnView.h"
+#import "StarDrawing.h"
 
 
-@interface StarBtnView()
+@interface StarDrawing()
 {
     CGFloat width;
     CGFloat height;
@@ -36,7 +36,7 @@
 
 @end
 
-@implementation StarBtnView
+@implementation StarDrawing
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -151,6 +151,7 @@
     }
 }
 
+// unused for now.
 -(void) addGradientGloss:(UIView *) viewControl {
 
     // Add Border
